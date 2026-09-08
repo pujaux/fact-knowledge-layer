@@ -2,12 +2,7 @@
   max-width: 640px;
 }
 
-.cases__intro {
-  font-size: 14px;
-  color: var(--ink-muted);
-  line-height: 1.6;
-  margin: 0 0 28px;
-}
+
 
 .case-item {
   display: flex;
