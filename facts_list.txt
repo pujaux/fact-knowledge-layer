@@ -1,0 +1,93 @@
+1 | 01-delhivery-prospectus-2022-excerpt.pdf | Underwriters | registration status | registered with the SEBI under Section 12(1) of the SEBI Act or registered as brokers with the Stock Exchange(s)
+2 | 01-delhivery-prospectus-2022-excerpt.pdf | Board | meeting date and approval | May 14, 2022
+3 | 01-delhivery-prospectus-2022-excerpt.pdf | Delhivery | largest fully-integrated logistics services player in India by revenue | largest
+4 | 01-delhivery-prospectus-2022-excerpt.pdf | Delhivery | active customers | 23,113
+5 | 01-delhivery-prospectus-2022-excerpt.pdf | Delhivery | number of self-developed applications | over 80
+6 | 01-delhivery-prospectus-2022-excerpt.pdf | Delhivery | engineering, data sciences and product team size | 505
+7 | 01-delhivery-prospectus-2022-excerpt.pdf | Delhivery | number of applications | over 80
+8 | 02-delhivery-annual-report-fy24-excerpt.pdf | Delhivery Limited | partnership | FedEx and Aramex
+9 | 02-delhivery-annual-report-fy24-excerpt.pdf | Delhivery | share of COD orders in e-commerce | 60
+10 | 02-delhivery-annual-report-fy24-excerpt.pdf | Delhivery | average RTO reduction | 20
+11 | 02-delhivery-annual-report-fy24-excerpt.pdf | Delhivery | businesses leveraging the solution | 4,800
+12 | 02-delhivery-annual-report-fy24-excerpt.pdf | Delhivery | delivered shipments since inception | 2.8
+13 | 02-delhivery-annual-report-fy24-excerpt.pdf | Delhivery Limited | population coverage | 99.5
+14 | 02-delhivery-annual-report-fy24-excerpt.pdf | Delhivery Limited | country coverage | 220
+15 | 01-india-economic-survey-2024-25-excerpt.pdf | India | real GDP growth | 6.4
+16 | 01-india-economic-survey-2024-25-excerpt.pdf | Global manufacturing | Number of nations with production rise (December PMI) | 13
+17 | 01-india-economic-survey-2024-25-excerpt.pdf | S&P Global report | Publication date | 2025-01-02
+18 | 01-india-economic-survey-2024-25-excerpt.pdf | Global Services PMI Business Activity Index | Business Activity Index level | 53.8
+19 | 01-india-economic-survey-2024-25-excerpt.pdf | Global Services PMI Business Activity Index | Consecutive expansion months | 23
+20 | 01-india-economic-survey-2024-25-excerpt.pdf | global maritime trade | share passing through Suez Canal | 15
+21 | 01-india-economic-survey-2024-25-excerpt.pdf | shipping routes via Cape of Good Hope | increase in delivery times | 10
+22 | 01-india-economic-survey-2024-25-excerpt.pdf | India | real GDP growth | 6.4
+23 | 02-rbi-annual-report-2024-25-excerpt.pdf | Internal Audit/Inspection | page number | 212
+24 | 02-rbi-annual-report-2024-25-excerpt.pdf | Corporate Strategy and Budget Management | page number | 213
+25 | 02-rbi-annual-report-2024-25-excerpt.pdf | Rajbhasha | page number | 215
+26 | 02-rbi-annual-report-2024-25-excerpt.pdf | Premises Department | page number | 216
+27 | 02-rbi-annual-report-2024-25-excerpt.pdf | Annex | page number | 219
+28 | 02-rbi-annual-report-2024-25-excerpt.pdf | XII. THE RESERVE BANK’S ACCOUNTS FOR 2024-25 | page number | 223
+29 | 02-rbi-annual-report-2024-25-excerpt.pdf | Balance Sheet | page number | 226
+30 | 02-rbi-annual-report-2024-25-excerpt.pdf | Income Statement | page number | 227
+31 | 02-rbi-annual-report-2024-25-excerpt.pdf | Schedules forming part of Balance Sheet and Income Statement | page number | 228
+32 | 02-rbi-annual-report-2024-25-excerpt.pdf | Statement of Significant Accounting Policies | page number | 231
+33 | 02-rbi-annual-report-2024-25-excerpt.pdf | Notes to Accounts | page number | 236
+34 | 02-rbi-annual-report-2024-25-excerpt.pdf | Annex I: Chronology of Major Policy Announcements | page number | 252
+35 | 02-rbi-annual-report-2024-25-excerpt.pdf | Global economy | growth rate in 2025 | below 3.7
+36 | 02-rbi-annual-report-2024-25-excerpt.pdf | Global economy | growth rate in 2025 | below 3.3
+37 | 02-rbi-annual-report-2024-25-excerpt.pdf | Indian economy | credit growth | double-digit
+38 | 02-rbi-annual-report-2024-25-excerpt.pdf | Historical average (2000-19) | growth rate | 3.7
+39 | 02-rbi-annual-report-2024-25-excerpt.pdf | Growth in 2024 | growth rate | 3.3
+40 | 02-rbi-annual-report-2024-25-excerpt.pdf | India | participation in free trade agreements | 14
+41 | 02-rbi-annual-report-2024-25-excerpt.pdf | India | participation in preferential trade agreements | 6
+42 | 02-rbi-annual-report-2024-25-excerpt.pdf | Global economy | growth | 3.3
+43 | 02-rbi-annual-report-2024-25-excerpt.pdf | Global economy | growth | 3.5
+44 | 02-rbi-annual-report-2024-25-excerpt.pdf | Global inflation | inflation rate | 5.7
+45 | 02-rbi-annual-report-2024-25-excerpt.pdf | Global inflation | inflation rate | 6.6
+46 | 02-rbi-annual-report-2024-25-excerpt.pdf | Global merchandise trade volume | expansion | 2.9
+47 | 02-rbi-annual-report-2024-25-excerpt.pdf | Global merchandise trade volume | contraction | 1.0
+48 | 02-rbi-annual-report-2024-25-excerpt.pdf | Inflows | inflows | 0.4
+49 | 02-rbi-annual-report-2024-25-excerpt.pdf | FPI net inflows | net inflows | 1.7
+50 | 02-rbi-annual-report-2024-25-excerpt.pdf | Foreign exchange reserves accretion | accretion | 23.8
+51 | 02-rbi-annual-report-2024-25-excerpt.pdf | Net outflows (H2) | net outflows | 18.5
+52 | 02-rbi-annual-report-2024-25-excerpt.pdf | Net FPI debt inflows | net inflows | 17.4
+53 | 02-rbi-annual-report-2024-25-excerpt.pdf | Reserves depletion (Q3) | depletion | 37.7
+54 | 02-rbi-annual-report-2024-25-excerpt.pdf | Reserves depletion (Apr-Dec 2024) | depletion | 13.8
+55 | 02-rbi-annual-report-2024-25-excerpt.pdf | Forex reserves | reserves | 668.3
+56 | 02-rbi-annual-report-2024-25-excerpt.pdf | Real GDP growth | growth rate | 6.5
+57 | 02-rbi-annual-report-2024-25-excerpt.pdf | Nuclear power capacity target | capacity | 100
+58 | 02-rbi-annual-report-2024-25-excerpt.pdf | State borrowing limit | borrowing limit | 0.5
+59 | 02-rbi-annual-report-2024-25-excerpt.pdf | Budgetary provision for Ministry of Science and Technology | budgetary provision | more than doubled
+60 | 02-rbi-annual-report-2024-25-excerpt.pdf | India R&D expenditure in GDP | share | 0.6
+61 | 02-rbi-annual-report-2024-25-excerpt.pdf | China R&D expenditure in GDP | share | 2.4
+62 | 02-rbi-annual-report-2024-25-excerpt.pdf | Korea R&D expenditure in GDP | share | 4.8
+63 | 02-rbi-annual-report-2024-25-excerpt.pdf | Malaysia R&D expenditure in GDP | share | 1
+64 | 02-rbi-annual-report-2024-25-excerpt.pdf | Headline inflation | inflation rate | 4.6
+65 | 02-rbi-annual-report-2024-25-excerpt.pdf | CPI inflation | inflation rate | 4.0
+66 | 02-rbi-annual-report-2024-25-excerpt.pdf | Policy repo rate | repo rate | 6.0
+67 | 02-rbi-annual-report-2024-25-excerpt.pdf | CoE for AI in education outlay | outlay | ₹500 crore
+68 | 02-rbi-annual-report-2024-25-excerpt.pdf | FDI cap in insurance sector | cap | 100
+69 | 02-rbi-annual-report-2024-25-excerpt.pdf | FDI cap in insurance sector | cap | 74
+70 | 02-rbi-annual-report-2024-25-excerpt.pdf | PRAVAAH portal | launch date | May 2024
+71 | 02-rbi-annual-report-2024-25-excerpt.pdf | Indian economy | status | fastest-growing major economy
+72 | 02-rbi-annual-report-2024-25-excerpt.pdf | merchandise trade deficit | offset | offset by robust services exports and steady remittance inflows
+73 | 02-rbi-annual-report-2024-25-excerpt.pdf | Section II.2.1 | page | 30
+74 | 02-rbi-annual-report-2024-25-excerpt.pdf | Section II.3.1 | page | 35
+75 | 02-rbi-annual-report-2024-25-excerpt.pdf | Section II.4.1 | page | 50
+76 | 02-rbi-annual-report-2024-25-excerpt.pdf | Section II.5.1 | page | 56
+77 | 02-rbi-annual-report-2024-25-excerpt.pdf | Section II.7.1 | page | 81
+78 | 02-rbi-annual-report-2024-25-excerpt.pdf | Section III.1 | page | 93
+79 | 02-rbi-annual-report-2024-25-excerpt.pdf | Section VI.1 | page | 126
+80 | 02-rbi-annual-report-2024-25-excerpt.pdf | Section VI.2 | page | 141
+81 | 02-rbi-annual-report-2024-25-excerpt.pdf | Section VII.1 | page | 153
+82 | 02-rbi-annual-report-2024-25-excerpt.pdf | Section VIII.1 | page | 157
+83 | 02-rbi-annual-report-2024-25-excerpt.pdf | Section IX.1 | page | 168
+84 | 02-rbi-annual-report-2024-25-excerpt.pdf | Section X.1 | page | 183
+85 | 02-rbi-annual-report-2024-25-excerpt.pdf | India | participation in FTAs | 14
+86 | 02-rbi-annual-report-2024-25-excerpt.pdf | India | participation in PTAs | 6
+87 | 02-rbi-annual-report-2024-25-excerpt.pdf | Global economy | growth | 3.3
+88 | 02-rbi-annual-report-2024-25-excerpt.pdf | Global economy | growth | 3.5
+89 | 02-rbi-annual-report-2024-25-excerpt.pdf | Global economy | historical average growth | 3.7
+90 | 02-rbi-annual-report-2024-25-excerpt.pdf | Global economy | inflation | 5.7
+91 | 02-rbi-annual-report-2024-25-excerpt.pdf | Global economy | inflation | 6.6
+92 | 02-rbi-annual-report-2024-25-excerpt.pdf | Global merchandise trade | volume growth | 2.9
+93 | 02-rbi-annual-report-2024-25-excerpt.pdf | Global merchandise trade | volume growth | 1.0

@@ -67,12 +67,21 @@ def build_relationships() -> dict:
 
     found = 0
     skipped = 0
+    errored = 0
     for i, j, sim in candidates:
         fact_a, fact_b = facts[i], facts[j]
         if db.relationship_exists(fact_a["id"], fact_b["id"]):
             skipped += 1
             continue
         result = classify_relationship(fact_a, fact_b)
+        if result is None:
+            # A real API/parsing failure, not a genuine "unrelated" judgment.
+            # Deliberately NOT stored -- storing it would make
+            # relationship_exists() treat this pair as already checked
+            # forever, permanently blocking a retry on a pair Groq never
+            # actually looked at.
+            errored += 1
+            continue
         relation = result.get("relation", "unrelated")
         db.add_relationship(
             fact_a["id"], fact_b["id"], relation,
@@ -84,5 +93,6 @@ def build_relationships() -> dict:
     return {
         "pairs_checked": len(candidates),
         "pairs_skipped_already_known": skipped,
+        "pairs_errored": errored,
         "relationships_found": found,
     }

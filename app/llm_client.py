@@ -3,8 +3,9 @@ so we reuse the `openai` SDK and just point it at Groq's base URL."""
 
 import json
 import re
+import time
 from openai import OpenAI
-from app.config import GROQ_API_KEY, GROQ_MODEL, GROQ_BASE_URL, MAX_FACTS_TOKENS, MAX_RELATION_TOKENS
+from app.config import GROQ_API_KEY, GROQ_MODEL, GROQ_BASE_URL, MAX_FACTS_TOKENS, MAX_RELATION_TOKENS, REQUEST_DELAY_SECONDS
 
 client = OpenAI(api_key=GROQ_API_KEY, base_url=GROQ_BASE_URL)
 
@@ -65,25 +66,72 @@ def _extract_json(raw: str) -> dict:
 
 
 def _call_groq(system_prompt: str, user_content: str, max_tokens: int) -> dict:
-    resp = client.chat.completions.create(
-        model=GROQ_MODEL,
-        temperature=0,
-        max_tokens=max_tokens,
-        messages=[
-            {"role": "system", "content": system_prompt},
-            {"role": "user", "content": user_content},
-        ],
-        # NOTE: deliberately NOT using response_format={"type": "json_object"} --
-        # on dense, table-heavy pages Groq's strict JSON mode was hard-rejecting
-        # the whole response (empty failed_generation, HTTP 400) instead of
-        # returning something we could recover. Prompting for JSON + parsing
-        # defensively in _extract_json is more forgiving and still reliable.
-    )
-    raw = resp.choices[0].message.content.strip()
-    return _extract_json(raw)
+    """Call Groq API with rate limit handling and exponential backoff retry.
+    
+    Handles:
+    - 429 (Rate Limit): Waits and retries with exponential backoff
+    - 400 (Request Too Large): Reports chunk size issue
+    - Other errors: Logs and raises
+    """
+    max_retries = 3
+    base_wait_time = 1  # Start with 1 second
+    
+    for attempt in range(max_retries):
+        try:
+            # Rate limit delay before each call
+            time.sleep(REQUEST_DELAY_SECONDS)
+            
+            resp = client.chat.completions.create(
+                model=GROQ_MODEL,
+                temperature=0,
+                max_tokens=max_tokens,
+                messages=[
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": user_content},
+                ],
+                # NOTE: deliberately NOT using response_format={"type": "json_object"} --
+                # on dense, table-heavy pages Groq's strict JSON mode was hard-rejecting
+                # the whole response (empty failed_generation, HTTP 400) instead of
+                # returning something we could recover. Prompting for JSON + parsing
+                # defensively in _extract_json is more forgiving and still reliable.
+            )
+            raw = resp.choices[0].message.content.strip()
+            return _extract_json(raw)
+        
+        except Exception as e:
+            error_str = str(e)
+            is_rate_limit = "429" in error_str or "rate_limit" in error_str.lower()
+            is_too_large = "request too large" in error_str.lower() or "400" in error_str
+            
+            # Rate limit: exponential backoff retry
+            if is_rate_limit:
+                if attempt < max_retries - 1:
+                    wait_time = base_wait_time * (2 ** attempt)  # 1s, 2s, 4s
+                    print(f"[⏳ Rate limited] Waiting {wait_time}s before retry {attempt + 1}/{max_retries}...")
+                    time.sleep(wait_time)
+                    continue
+                else:
+                    print(f"[❌ Rate limit] Max retries exhausted after {max_retries} attempts")
+                    raise
+            
+            # Request too large: report and fail
+            if is_too_large:
+                print(f"[❌ Chunk too large] Request exceeds token limits.")
+                print(f"    Reduce CHUNK_CHAR_SIZE in app/config.py (currently 800-1500)")
+                raise
+            
+            # Other errors: log and raise immediately
+            print(f"[❌ Groq API error] {e}")
+            raise
+    
+    raise Exception(f"Failed after {max_retries} retries")
 
 
 def extract_facts(chunk_text: str, doc_name: str) -> list:
+    """Extract facts from a text chunk using Groq.
+    
+    Returns empty list on failure (already logged to console).
+    """
     user_content = f"Document: {doc_name}\n\nText:\n{chunk_text}"
     try:
         data = _call_groq(EXTRACTION_SYSTEM_PROMPT, user_content, MAX_FACTS_TOKENS)
@@ -94,6 +142,10 @@ def extract_facts(chunk_text: str, doc_name: str) -> list:
 
 
 def classify_relationship(fact_a: dict, fact_b: dict) -> dict:
+    """Classify relationship between two facts using Groq.
+    
+    Returns None on failure (already logged to console).
+    """
     user_content = (
         f"FACT A (from {fact_a['doc_name']}, page {fact_a['page']}):\n"
         f"entity={fact_a['entity']}, metric={fact_a['metric']}, value={fact_a['value']} {fact_a.get('unit') or ''}, "
@@ -108,4 +160,4 @@ def classify_relationship(fact_a: dict, fact_b: dict) -> dict:
         return _call_groq(RELATION_SYSTEM_PROMPT, user_content, MAX_RELATION_TOKENS)
     except Exception as e:
         print(f"[classify_relationship] failed: {e}")
-        return {"relation": "unrelated", "confidence": 0.0, "explanation": f"error: {e}"}
+        return None
