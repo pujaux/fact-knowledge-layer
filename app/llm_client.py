@@ -2,6 +2,7 @@
 so we reuse the `openai` SDK and just point it at Groq's base URL."""
 
 import json
+import re
 from openai import OpenAI
 from app.config import GROQ_API_KEY, GROQ_MODEL, GROQ_BASE_URL, MAX_FACTS_TOKENS, MAX_RELATION_TOKENS
 
@@ -45,6 +46,24 @@ Return ONLY valid JSON, no prose, no markdown fences:
 """
 
 
+def _extract_json(raw: str) -> dict:
+    """Parse the model's response into JSON, tolerating markdown fences and
+    any stray text around the JSON object (Groq occasionally adds a little
+    of both despite instructions not to)."""
+    raw = raw.strip()
+    if raw.startswith("```"):
+        raw = raw.strip("`")
+        raw = raw.split("\n", 1)[1] if "\n" in raw else raw
+        raw = raw.rsplit("```", 1)[0].strip()
+    try:
+        return json.loads(raw)
+    except json.JSONDecodeError:
+        match = re.search(r"\{.*\}", raw, re.DOTALL)
+        if match:
+            return json.loads(match.group(0))
+        raise
+
+
 def _call_groq(system_prompt: str, user_content: str, max_tokens: int) -> dict:
     resp = client.chat.completions.create(
         model=GROQ_MODEL,
@@ -54,14 +73,14 @@ def _call_groq(system_prompt: str, user_content: str, max_tokens: int) -> dict:
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": user_content},
         ],
+        # NOTE: deliberately NOT using response_format={"type": "json_object"} --
+        # on dense, table-heavy pages Groq's strict JSON mode was hard-rejecting
+        # the whole response (empty failed_generation, HTTP 400) instead of
+        # returning something we could recover. Prompting for JSON + parsing
+        # defensively in _extract_json is more forgiving and still reliable.
     )
     raw = resp.choices[0].message.content.strip()
-    # Groq sometimes wraps JSON in ```json fences despite instructions -- strip defensively
-    if raw.startswith("```"):
-        raw = raw.strip("`")
-        raw = raw.split("\n", 1)[1] if "\n" in raw else raw
-        raw = raw.rsplit("```", 1)[0]
-    return json.loads(raw)
+    return _extract_json(raw)
 
 
 def extract_facts(chunk_text: str, doc_name: str) -> list:

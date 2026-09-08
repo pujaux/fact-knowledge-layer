@@ -12,9 +12,9 @@ UPLOAD_DIR = os.path.join(os.path.dirname(__file__), "..", "uploads")
 
 # Chunking / cost controls
 CHUNK_CHAR_SIZE = 3000          # ~ a page or two of text per Groq call
-MAX_FACTS_TOKENS = 900          # cap output tokens for extraction calls
+MAX_FACTS_TOKENS = 2500          # cap output tokens for extraction calls
 MAX_RELATION_TOKENS = 250       # cap output tokens for relationship calls
-SIMILARITY_THRESHOLD = 0.55     # cosine similarity floor to even consider a pair
+SIMILARITY_THRESHOLD =0.35    # cosine similarity floor to even consider a pair
 TOP_K_CANDIDATES_PER_FACT = 5   # only compare each fact to its 5 nearest neighbors
 
 os.makedirs(os.path.dirname(DB_PATH), exist_ok=True)
