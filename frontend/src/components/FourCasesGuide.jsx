@@ -25,7 +25,8 @@ const CASES = [
 
 export default function FourCasesGuide() {
   return (
-    
+    <div className="cases">
+      
       {CASES.map((c) => (
         <div className="case-item" key={c.n}>
           <span className="case-item__n">{c.n}</span>
