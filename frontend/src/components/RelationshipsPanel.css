@@ -1,0 +1,148 @@
+.filter-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.filter-chip {
+  background: transparent;
+  border: 1px solid var(--maroon-line);
+  color: var(--ink-muted);
+  border-radius: 999px;
+  padding: 7px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 150ms ease;
+}
+
+.filter-chip:hover {
+  color: var(--ink);
+  border-color: var(--ash);
+}
+
+.filter-chip--active {
+  background: var(--ember);
+  border-color: var(--ember);
+  color: #1a0603;
+}
+
+.rel-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.rel-card {
+  background: var(--maroon-soft);
+  border: 1px solid var(--maroon-line);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.rel-card__header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.rel-card__title {
+  flex: 1;
+  font-size: 14px;
+  color: var(--ink);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rel-card__vs {
+  color: var(--ink-faint);
+  font-weight: 400;
+}
+
+.rel-card__sim {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--ink-faint);
+  flex-shrink: 0;
+}
+
+.rel-card__body {
+  padding: 4px 18px 20px;
+  border-top: 1px solid var(--maroon-line);
+}
+
+.evidence-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 16px;
+}
+
+@media (max-width: 760px) {
+  .evidence-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.evidence {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.evidence__source {
+  font-size: 11px;
+  color: var(--ink-faint);
+  margin: 0;
+}
+
+.evidence__claim {
+  font-size: 13.5px;
+  color: var(--ink);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.evidence__claim strong {
+  color: var(--ember-core);
+}
+
+.evidence__period {
+  color: var(--ink-muted);
+}
+
+.evidence__quote {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--ink-muted);
+  line-height: 1.5;
+  margin: 4px 0 0;
+  padding-left: 10px;
+  border-left: 2px solid var(--maroon-line);
+}
+
+.rel-card__explanation {
+  font-size: 13.5px;
+  color: var(--ink-muted);
+  line-height: 1.6;
+  margin: 18px 0 10px;
+}
+
+.confidence-bar {
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+}
+
+.confidence-bar__fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--ember) 0%, var(--gold) 100%);
+}

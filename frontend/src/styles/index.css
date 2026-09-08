@@ -1,0 +1,86 @@
+:root {
+  /* --- palette: embers in the dark --- */
+  --void: #0a0504;
+  --void-soft: #120807;
+  --maroon: #2b0a0d;
+  --maroon-soft: #3d1013;
+  --maroon-line: rgba(255, 138, 61, 0.16);
+
+  --ember: #ff6a2b;
+  --ember-core: #ffe1b8;
+  --ember-dim: rgba(255, 106, 43, 0.35);
+
+  --gold: #f5b942; /* corroborate */
+  --flare: #ff3b30; /* contradict */
+  --ash: #8a5a52; /* unverified / extinguished */
+
+  --ink: #f6ede6;
+  --ink-muted: #b08b80;
+  --ink-faint: #6f4d47;
+
+  --font-display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --radius-lg: 20px;
+  --radius-md: 12px;
+  --radius-sm: 8px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--void);
+  color: var(--ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--ember-dim);
+  color: var(--ember-core);
+}
+
+button {
+  font-family: inherit;
+}
+
+/* visible keyboard focus everywhere, no exceptions */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--ember);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* thin scrollbar that matches the theme instead of the OS default */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--maroon-soft);
+  border-radius: 8px;
+  border: 2px solid var(--void);
+}

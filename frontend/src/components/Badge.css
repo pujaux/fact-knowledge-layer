@@ -1,0 +1,56 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-body);
+  font-size: 12.5px;
+  font-weight: 700;
+  padding: 5px 12px 5px 10px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+}
+
+.badge__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+.badge--corroborate {
+  color: var(--gold);
+  border-color: rgba(245, 185, 66, 0.35);
+  background: rgba(245, 185, 66, 0.08);
+}
+.badge--corroborate .badge__dot {
+  background: var(--gold);
+  box-shadow: 0 0 8px 1px rgba(245, 185, 66, 0.55);
+}
+
+.badge--contradict {
+  color: #ff8079;
+  border-color: rgba(255, 59, 48, 0.35);
+  background: rgba(255, 59, 48, 0.08);
+}
+.badge--contradict .badge__dot {
+  background: var(--flare);
+  box-shadow: 0 0 8px 1px rgba(255, 59, 48, 0.55);
+}
+
+.badge--reconcilable {
+  color: var(--ember-core);
+  border-color: rgba(255, 106, 43, 0.35);
+  background: rgba(255, 106, 43, 0.08);
+}
+.badge--reconcilable .badge__dot {
+  background: var(--ember);
+  box-shadow: 0 0 8px 1px var(--ember-dim);
+}
+
+.badge--unrelated {
+  color: var(--ink-faint);
+  border-color: var(--maroon-line);
+  background: transparent;
+}
+.badge--unrelated .badge__dot {
+  background: var(--ash);
+}
