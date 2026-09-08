@@ -25,11 +25,7 @@ const CASES = [
 
 export default function FourCasesGuide() {
   return (
-    <div className="cases">
-      <p className="cases__intro">
-        Your demo video needs one example of each. This is where to find them once you've
-        uploaded at least two related PDFs.
-      </p>
+    
       {CASES.map((c) => (
         <div className="case-item" key={c.n}>
           <span className="case-item__n">{c.n}</span>
