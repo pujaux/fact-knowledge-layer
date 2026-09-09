@@ -52,3 +52,8 @@ def list_relationships(relation: str = None):
 def rebuild_relationships():
     """Manually re-run relationship discovery without uploading a new file."""
     return build_relationships()
+
+@app.delete("/documents/{doc_id}")
+def delete_document(doc_id: int):
+    db.delete_document(doc_id)
+    return {"deleted": doc_id}

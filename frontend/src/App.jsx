@@ -52,6 +52,17 @@ export default function App() {
     }
   }
 
+  async function handleDelete(docId) {
+    setBusy(true);
+    try {
+      await api.deleteDocument(docId);
+      await refreshAll();
+      await refreshRelationships(relationFilter);
+    } finally {
+      setBusy(false);
+    }
+}
+
   async function handleRebuild() {
     setBusy(true);
     setStatusLine("Re-scanning facts for cross-document relationships…");
@@ -75,6 +86,7 @@ export default function App() {
         documents={documents}
         onUpload={handleUpload}
         onRebuild={handleRebuild}
+        onDelete={handleDelete}
         busy={busy}
         statusLine={statusLine}
       />

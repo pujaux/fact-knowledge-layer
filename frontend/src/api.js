@@ -19,4 +19,7 @@ export const api = {
   },
   rebuildRelationships: () =>
     fetch(`${API_BASE}/relationships/rebuild`, { method: "POST" }).then(json),
+
+  deleteDocument: (id) =>
+    fetch(`${API_BASE}/documents/${id}`, { method: "DELETE" }).then(json),
 };

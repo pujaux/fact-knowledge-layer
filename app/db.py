@@ -193,3 +193,22 @@ def list_documents() -> list:
     rows = conn.execute("SELECT * FROM documents ORDER BY id").fetchall()
     conn.close()
     return [dict(r) for r in rows]
+
+def delete_document(doc_id: int):
+    """Deletes a document and everything derived from it: its facts, and
+    any relationship row that references one of those facts (in either
+    direction), since a relationship can't exist with a dangling fact_id."""
+    conn = get_conn()
+    fact_ids = [row[0] for row in conn.execute(
+        "SELECT id FROM facts WHERE doc_id = ?", (doc_id,)
+    ).fetchall()]
+    if fact_ids:
+        placeholders = ",".join("?" * len(fact_ids))
+        conn.execute(
+            f"DELETE FROM relationships WHERE fact_a_id IN ({placeholders}) OR fact_b_id IN ({placeholders})",
+            fact_ids + fact_ids,
+        )
+        conn.execute(f"DELETE FROM facts WHERE id IN ({placeholders})", fact_ids)
+    conn.execute("DELETE FROM documents WHERE id = ?", (doc_id,))
+    conn.commit()
+    conn.close()
