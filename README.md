@@ -1,3 +1,5 @@
+
+
 # Fact Knowledge Layer
 
 Extracts checkable facts from PDFs, grounds every fact in a verbatim quote + page number,
@@ -74,7 +76,12 @@ python -c "from app.pipeline import process_document; print(process_document('/p
 
 ## Video Demo
 
-`<paste your ≤3-minute video link here — YouTube unlisted or Google Drive with link access>`
+
+https://github.com/user-attachments/assets/f88a401f-5a5b-414e-bc3c-dfb65dfe0558
+
+
+
+
 
 ---
 

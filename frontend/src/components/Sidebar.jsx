@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import "./Sidebar.css";
 
-export default function Sidebar({ documents, onUpload, onRebuild, busy, statusLine }) {
+export default function Sidebar({ documents, onUpload, onRebuild, onDelete, busy, statusLine }) {
   const fileInputRef = useRef(null);
   const [pendingFile, setPendingFile] = useState(null);
   const [dragOver, setDragOver] = useState(false);
@@ -89,6 +89,14 @@ export default function Sidebar({ documents, onUpload, onRebuild, busy, statusLi
                   aria-hidden="true"
                 />
                 <span className="doc-list__name">{d.filename}</span>
+                <button
+                  className="doc-list__delete"
+                  title="Remove this document and its facts"
+                  disabled={busy}
+                  onClick={() => onDelete(d.id)}
+                >
+                  ×
+                </button>
               </li>
             ))}
           </ul>

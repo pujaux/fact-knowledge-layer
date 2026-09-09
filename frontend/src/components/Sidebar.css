@@ -166,3 +166,26 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+.doc-list__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.doc-list__name {
+  flex: 1;
+}
+.doc-list__delete {
+  background: none;
+  border: none;
+  color: var(--ink-muted, #999);
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+.doc-list__delete:hover {
+  color: #c0392b;
+  background: rgba(192, 57, 43, 0.1);
+}
